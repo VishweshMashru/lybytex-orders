@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { buyers } from "@/db/schema";
 
+export const revalidate = 60;
+
 export async function GET() {
   const session = await auth();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
